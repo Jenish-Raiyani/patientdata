@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://127.0.0.1:8000/personaldata/222222221112/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+    
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title>EasyMedi</title>
+
+
+    
+    <link rel="stylesheet" href="./EasyMedi_files/app.min.css">
+    <link rel="stylesheet" href="./EasyMedi_files/daterangepicker.css">
+    <link rel="stylesheet" href="./EasyMedi_files/bootstrap-colorpicker.min.css">
+    <link rel="stylesheet" href="./EasyMedi_files/select2.min.css">
+    <link rel="stylesheet" href="./EasyMedi_files/selectric.css">
+    <link rel="stylesheet" href="./EasyMedi_files/bootstrap-timepicker.min.css">
+    <link rel="stylesheet" href="./EasyMedi_files/bootstrap-tagsinput.css">
+    <link rel="stylesheet" href="./EasyMedi_files/datatables.min.css">
+    <link rel="stylesheet" href="./EasyMedi_files/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="./EasyMedi_files/bootstrap-social.css">
+
+    <link rel="stylesheet" href="./EasyMedi_files/iziToast.min.css">
+
+ 
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="./EasyMedi_files/style.css">
+    <link rel="stylesheet" href="./EasyMedi_files/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="./EasyMedi_files/custom.css">
+    <link rel="shortcut icon" type="image/x-icon" href="http://127.0.0.1:8000/static/dashboard-assets/img/favicon1.ico">
+ 
+
+   
+   
+
+
+
+    
+<style type="text/css">.apexcharts-canvas {
+  position: relative;
+  user-select: none;
+  /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
+}
+
+/* scrollbar is not visible by default for legend, hence forcing the visibility */
+.apexcharts-canvas ::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 6px;
+}
+.apexcharts-canvas ::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.5);
+  box-shadow: 0 0 1px rgba(255,255,255,.5);
+  -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+}
+
+.apexcharts-inner {
+  position: relative;
+}
+
+.legend-mouseover-inactive {
+  transition: 0.15s ease all;
+  opacity: 0.20;
+}
+
+.apexcharts-series-collapsed {
+  opacity: 0;
+}
+
+.apexcharts-gridline, .apexcharts-text {
+  pointer-events: none;
+}
+
+.apexcharts-tooltip {
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px -4px #999;
+  cursor: default;
+  font-size: 14px;
+  left: 62px;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 20px;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 12;
+  transition: 0.15s ease all;
+}
+.apexcharts-tooltip.light {
+  border: 1px solid #e3e3e3;
+  background: rgba(255, 255, 255, 0.96);
+}
+.apexcharts-tooltip.dark {
+  color: #fff;
+  background: rgba(30,30,30, 0.8);
+}
+.apexcharts-tooltip * {
+  font-family: inherit;
+}
+
+.apexcharts-tooltip .apexcharts-marker,
+.apexcharts-area-series .apexcharts-area,
+.apexcharts-line {
+  pointer-events: none;
+}
+
+.apexcharts-tooltip.active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-tooltip-title {
+  padding: 6px;
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+.apexcharts-tooltip.light .apexcharts-tooltip-title {
+  background: #ECEFF1;
+  border-bottom: 1px solid #ddd;
+}
+.apexcharts-tooltip.dark .apexcharts-tooltip-title {
+  background: rgba(0, 0, 0, 0.7);
+  border-bottom: 1px solid #222;
+}
+
+.apexcharts-tooltip-text-value,
+.apexcharts-tooltip-text-z-value {
+  display: inline-block;
+  font-weight: 600;
+  margin-left: 5px;
+}
+
+.apexcharts-tooltip-text-z-label:empty,
+.apexcharts-tooltip-text-z-value:empty {
+  display: none;
+}
+
+.apexcharts-tooltip-text-value, 
+.apexcharts-tooltip-text-z-value {
+  font-weight: 600;
+}
+
+.apexcharts-tooltip-marker {
+  width: 12px;
+  height: 12px;
+  position: relative;
+  top: 0px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.apexcharts-tooltip-series-group {
+  padding: 0 10px;
+  display: none;
+  text-align: left;
+  justify-content: left;
+  align-items: center;
+}
+
+.apexcharts-tooltip-series-group.active .apexcharts-tooltip-marker {
+  opacity: 1;
+}
+.apexcharts-tooltip-series-group.active, .apexcharts-tooltip-series-group:last-child {
+  padding-bottom: 4px;
+}
+.apexcharts-tooltip-y-group {
+  padding: 6px 0 5px;
+}
+.apexcharts-tooltip-candlestick {
+  padding: 4px 8px;
+}
+.apexcharts-tooltip-candlestick > div {
+  margin: 4px 0;
+}
+.apexcharts-tooltip-candlestick span.value {
+  font-weight: bold;
+}
+
+.apexcharts-xaxistooltip {
+  opacity: 0;
+  padding: 9px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+	background: #ECEFF1;
+  border: 1px solid #90A4AE;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xaxistooltip:after, .apexcharts-xaxistooltip:before {
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.apexcharts-xaxistooltip:after {
+	border-color: rgba(236, 239, 241, 0);
+	border-width: 6px;
+	margin-left: -6px;
+}
+.apexcharts-xaxistooltip:before {
+	border-color: rgba(144, 164, 174, 0);
+	border-width: 7px;
+	margin-left: -7px;
+}
+
+.apexcharts-xaxistooltip-bottom:after, .apexcharts-xaxistooltip-bottom:before {
+  bottom: 100%;
+}
+
+.apexcharts-xaxistooltip-bottom:after {
+  border-bottom-color: #ECEFF1;
+}
+.apexcharts-xaxistooltip-bottom:before {
+  border-bottom-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip-top:after, .apexcharts-xaxistooltip-top:before {
+  top: 100%;
+}
+.apexcharts-xaxistooltip-top:after {
+  border-top-color: #ECEFF1;
+}
+.apexcharts-xaxistooltip-top:before {
+  border-top-color: #90A4AE;
+}
+
+.apexcharts-xaxistooltip.active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-yaxistooltip {
+  opacity: 0;
+  padding: 4px 10px;
+  pointer-events: none;
+  color: #373d3f;
+  font-size: 13px;
+  text-align: center;
+  border-radius: 2px;
+  position: absolute;
+  z-index: 10;
+	background: #ECEFF1;
+  border: 1px solid #90A4AE;
+}
+
+.apexcharts-yaxistooltip:after, .apexcharts-yaxistooltip:before {
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+.apexcharts-yaxistooltip:after {
+	border-color: rgba(236, 239, 241, 0);
+	border-width: 6px;
+	margin-top: -6px;
+}
+.apexcharts-yaxistooltip:before {
+	border-color: rgba(144, 164, 174, 0);
+	border-width: 7px;
+	margin-top: -7px;
+}
+
+.apexcharts-yaxistooltip-left:after, .apexcharts-yaxistooltip-left:before {
+  left: 100%;
+}
+.apexcharts-yaxistooltip-left:after {
+  border-left-color: #ECEFF1;
+}
+.apexcharts-yaxistooltip-left:before {
+  border-left-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip-right:after, .apexcharts-yaxistooltip-right:before {
+  right: 100%;
+}
+.apexcharts-yaxistooltip-right:after {
+  border-right-color: #ECEFF1;
+}
+.apexcharts-yaxistooltip-right:before {
+  border-right-color: #90A4AE;
+}
+
+.apexcharts-yaxistooltip.active {
+  opacity: 1;
+}
+
+.apexcharts-xcrosshairs, .apexcharts-ycrosshairs {
+  pointer-events: none;
+  opacity: 0;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-xcrosshairs.active, .apexcharts-ycrosshairs.active {
+  opacity: 1;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-ycrosshairs-hidden {
+  opacity: 0;
+}
+
+.apexcharts-zoom-rect {
+  pointer-events: none;
+}
+.apexcharts-selection-rect {
+  cursor: move;
+}
+
+.svg_select_points, .svg_select_points_rot {
+  opacity: 0;
+  visibility: hidden;
+}
+.svg_select_points_l, .svg_select_points_r {
+  cursor: ew-resize;
+  opacity: 1;
+  visibility: visible;
+  fill: #888;
+}
+.apexcharts-canvas.zoomable .hovering-zoom {
+  cursor: crosshair
+}
+.apexcharts-canvas.zoomable .hovering-pan {
+  cursor: move
+}
+
+.apexcharts-xaxis,
+.apexcharts-yaxis {
+  pointer-events: none;
+}
+
+.apexcharts-zoom-icon, 
+.apexcharts-zoom-in-icon,
+.apexcharts-zoom-out-icon,
+.apexcharts-reset-zoom-icon, 
+.apexcharts-pan-icon, 
+.apexcharts-selection-icon,
+.apexcharts-menu-icon {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+}
+
+
+.apexcharts-zoom-icon svg, 
+.apexcharts-zoom-in-icon svg,
+.apexcharts-zoom-out-icon svg,
+.apexcharts-reset-zoom-icon svg,
+.apexcharts-menu-icon svg {
+  fill: #6E8192;
+}
+.apexcharts-selection-icon svg {
+  fill: #444;
+  transform: scale(0.76)
+}
+.apexcharts-zoom-icon.selected svg, 
+.apexcharts-selection-icon.selected svg, 
+.apexcharts-reset-zoom-icon.selected svg {
+  fill: #008FFB;
+}
+.apexcharts-selection-icon:not(.selected):hover svg,
+.apexcharts-zoom-icon:not(.selected):hover svg, 
+.apexcharts-zoom-in-icon:hover svg, 
+.apexcharts-zoom-out-icon:hover svg, 
+.apexcharts-reset-zoom-icon:hover svg, 
+.apexcharts-menu-icon:hover svg {
+  fill: #333;
+}
+
+.apexcharts-selection-icon, .apexcharts-menu-icon {
+  position: relative;
+}
+.apexcharts-reset-zoom-icon {
+  margin-left: 5px;
+}
+.apexcharts-zoom-icon, .apexcharts-reset-zoom-icon, .apexcharts-menu-icon {
+  transform: scale(0.85);
+}
+
+.apexcharts-zoom-in-icon, .apexcharts-zoom-out-icon {
+  transform: scale(0.7)
+}
+
+.apexcharts-zoom-out-icon {
+  margin-right: 3px;
+}
+
+.apexcharts-pan-icon {
+  transform: scale(0.62);
+  position: relative;
+  left: 1px;
+  top: 0px;
+}
+.apexcharts-pan-icon svg {
+  fill: #fff;
+  stroke: #6E8192;
+  stroke-width: 2;
+}
+.apexcharts-pan-icon.selected svg {
+  stroke: #008FFB;
+}
+.apexcharts-pan-icon:not(.selected):hover svg {
+  stroke: #333;
+}
+
+.apexcharts-toolbar {
+  position: absolute;
+  z-index: 11;
+  top: 0px;
+  right: 3px;
+  max-width: 176px;
+  text-align: right;
+  border-radius: 3px;
+  padding: 0px 6px 2px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; 
+}
+
+.apexcharts-toolbar svg {
+  pointer-events: none;
+}
+
+.apexcharts-menu {
+  background: #fff;
+  position: absolute;
+  top: 100%;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  padding: 3px;
+  right: 10px;
+  opacity: 0;
+  min-width: 110px;
+  transition: 0.15s ease all;
+  pointer-events: none;
+}
+
+.apexcharts-menu.open {
+  opacity: 1;
+  pointer-events: all;
+  transition: 0.15s ease all;
+}
+
+.apexcharts-menu-item {
+  padding: 6px 7px;
+  font-size: 12px;
+  cursor: pointer;
+}
+.apexcharts-menu-item:hover {
+  background: #eee;
+}
+
+@media screen and (min-width: 768px) {
+  .apexcharts-toolbar {
+    /*opacity: 0;*/
+  }
+
+  .apexcharts-canvas:hover .apexcharts-toolbar {
+    opacity: 1;
+  } 
+}
+
+.apexcharts-datalabel.hidden {
+  opacity: 0;
+}
+
+.apexcharts-pie-label,
+.apexcharts-datalabel, .apexcharts-datalabel-label, .apexcharts-datalabel-value {
+  cursor: default;
+  pointer-events: none;
+}
+
+.apexcharts-pie-label-delay {
+  opacity: 0;
+  animation-name: opaque;
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+.apexcharts-canvas .hidden {
+  opacity: 0;
+}
+
+.apexcharts-hide .apexcharts-series-points {
+  opacity: 0;
+}
+
+.apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+.apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events, .apexcharts-radar-series path, .apexcharts-radar-series polygon {
+  pointer-events: none;
+}
+
+/* markers */
+
+.apexcharts-marker {
+  transition: 0.15s ease all;
+}
+
+@keyframes opaque {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}</style></head>
+
+
+<body class="light light-sidebar theme-white" data-new-gr-c-s-check-loaded="14.1082.0" data-gr-ext-installed="">
+
+    <div class="loader" style="display: none;"></div>
+    <div id="app">
+      <div class="main-wrapper main-wrapper-1">
+        <div class="navbar-bg"></div>
+        <nav class="navbar navbar-expand-lg main-navbar sticky">
+          <div class="form-inline mr-auto">
+            <ul class="navbar-nav mr-3">
+              <li><a href="http://127.0.0.1:8000/personaldata/222222221112/#" data-toggle="sidebar" class="nav-link nav-link-lg
+                                      collapse-btn"> <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-align-justify"><line x1="21" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="21" y1="18" x2="3" y2="18"></line></svg></a></li>
+              <li><a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="nav-link nav-link-lg fullscreen-btn">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"></path></svg>
+                </a></li>
+              <li>
+                <form class="form-inline mr-auto">
+                  <div class="search-element">
+                    <input class="form-control" type="search" placeholder="Search" aria-label="Search" data-width="200" style="width: 200px;">
+                    <button class="btn" type="submit">
+                      <i class="fas fa-search"></i>
+                    </button>
+                  </div>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <ul class="navbar-nav navbar-right">
+            <li class="dropdown dropdown-list-toggle"><a href="http://127.0.0.1:8000/personaldata/222222221112/#" data-toggle="dropdown" class="nav-link nav-link-lg message-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-mail"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                <span class="badge headerBadge1">
+                  6 </span> </a>
+              <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                <div class="dropdown-header">
+                  Messages
+                  <div class="float-right">
+                    <a href="http://127.0.0.1:8000/personaldata/222222221112/#">Mark All As Read</a>
+                  </div>
+                </div>
+                <div class="dropdown-list-content dropdown-list-message">
+                  <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-avatar
+                                              text-white"> <img alt="image" src="./EasyMedi_files/user-1.png" class="rounded-circle">
+                    </span> <span class="dropdown-item-desc"> <span class="message-user">John
+                        Deo</span>
+                      <span class="time messege-text">Please check your mail !!</span>
+                      <span class="time">2 Min Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                      <img alt="image" src="./EasyMedi_files/user-2.png" class="rounded-circle">
+                    </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                        Smith</span> <span class="time messege-text">Request for leave
+                        application</span>
+                      <span class="time">5 Min Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                      <img alt="image" src="./EasyMedi_files/user-5.png" class="rounded-circle">
+                    </span> <span class="dropdown-item-desc"> <span class="message-user">Jacob
+                        Ryan</span> <span class="time messege-text">Your payment invoice is
+                        generated.</span> <span class="time">12 Min Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                      <img alt="image" src="./EasyMedi_files/user-4.png" class="rounded-circle">
+                    </span> <span class="dropdown-item-desc"> <span class="message-user">Lina
+                        Smith</span> <span class="time messege-text">hii John, I have upload
+                        doc
+                        related to task.</span> <span class="time">30
+                        Min Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                      <img alt="image" src="./EasyMedi_files/user-3.png" class="rounded-circle">
+                    </span> <span class="dropdown-item-desc"> <span class="message-user">Jalpa
+                        Joshi</span> <span class="time messege-text">Please do as specify.
+                        Let me
+                        know if you have any query.</span> <span class="time">1
+                        Days Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-avatar text-white">
+                      <img alt="image" src="./EasyMedi_files/user-2.png" class="rounded-circle">
+                    </span> <span class="dropdown-item-desc"> <span class="message-user">Sarah
+                        Smith</span> <span class="time messege-text">Client Requirements</span>
+                      <span class="time">2 Days Ago</span>
+                    </span>
+                  </a>
+                </div>
+                <div class="dropdown-footer text-center">
+                  <a href="http://127.0.0.1:8000/personaldata/222222221112/#">View All <i class="fas fa-chevron-right"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown dropdown-list-toggle"><a href="http://127.0.0.1:8000/personaldata/222222221112/#" data-toggle="dropdown" class="nav-link notification-toggle nav-link-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell bell"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+              </a>
+              <div class="dropdown-menu dropdown-list dropdown-menu-right pullDown">
+                <div class="dropdown-header">
+                  Notifications
+                  <div class="float-right">
+                    <a href="http://127.0.0.1:8000/personaldata/222222221112/#">Mark All As Read</a>
+                  </div>
+                </div>
+                <div class="dropdown-list-content dropdown-list-icons">
+                  <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item dropdown-item-unread"> <span class="dropdown-item-icon bg-primary text-white"> <i class="fas
+                                                  fa-code"></i>
+                    </span> <span class="dropdown-item-desc"> Template update is
+                      available now! <span class="time">2 Min
+                        Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="far
+                                                  fa-user"></i>
+                    </span> <span class="dropdown-item-desc"> <b>You</b> and <b>Dedik
+                        Sugiharto</b> are now friends <span class="time">10 Hours
+                        Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-icon bg-success text-white"> <i class="fas
+                                                  fa-check"></i>
+                    </span> <span class="dropdown-item-desc"> <b>Kusnaedi</b> has
+                      moved task <b>Fix bug header</b> to <b>Done</b> <span class="time">12
+                        Hours
+                        Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-icon bg-danger text-white"> <i class="fas fa-exclamation-triangle"></i>
+                    </span> <span class="dropdown-item-desc"> Low disk space. Let's
+                      clean it! <span class="time">17 Hours Ago</span>
+                    </span>
+                  </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item"> <span class="dropdown-item-icon bg-info text-white"> <i class="fas
+                                                  fa-bell"></i>
+                    </span> <span class="dropdown-item-desc"> Welcome to Otika
+                      template! <span class="time">Yesterday</span>
+                    </span>
+                  </a>
+                </div>
+                <div class="dropdown-footer text-center">
+                  <a href="http://127.0.0.1:8000/personaldata/222222221112/#">View All <i class="fas fa-chevron-right"></i></a>
+                </div>
+              </div>
+            </li>
+            <li class="dropdown"><a href="http://127.0.0.1:8000/personaldata/222222221112/#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image" src="./EasyMedi_files/user.png" class="user-img-radious-style"> <span class="d-sm-none d-lg-inline-block"></span></a>
+              <div class="dropdown-menu dropdown-menu-right pullDown">
+                <div class="dropdown-title">Hello Sarah Smith</div>
+                <a href="http://127.0.0.1:8000/personaldata/222222221112/profile.html" class="dropdown-item has-icon"> <i class="far
+                                          fa-user"></i> Profile
+                </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/timeline.html" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
+                  Activities
+                </a> <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>
+                  Settings
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="http://127.0.0.1:8000/logout" class="dropdown-item has-icon text-danger"> <i class="fas fa-sign-out-alt"></i>
+                  Logout
+                </a>
+              </div>
+            </li>
+          </ul>
+        </nav>
+        <div class="main-sidebar sidebar-style-2" style="overflow: hidden; outline: none;" tabindex="1">
+          <aside id="sidebar-wrapper">
+            <div class="sidebar-brand">
+              <a href="http://127.0.0.1:8000/"> <img alt="image" src="./EasyMedi_files/EasyMedi.png" class="header-logo">
+              </a>
+            </div>
+            <ul class="sidebar-menu">
+              <li class="menu-header">Main</li>
+              <li class="dropdown active">
+                <a href="http://127.0.0.1:8000/dashboard" class="nav-link toggled"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-monitor"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg><span>Dashboard</span></a>
+              </li>
+              <li class="dropdown">
+                <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="menu-toggle nav-link has-dropdown"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-briefcase"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg><span>Manage Patient</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="http://127.0.0.1:8000/personal-info">Add Personal Info</a></li>
+                  <li><a class="nav-link" href="http://127.0.0.1:8000/disease">Add Disease</a></li>
+                </ul>
+              </li>
+              <li class="">
+                <a href="http://127.0.0.1:8000/SearchPatient" class="nav-link"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-command"><path d="M18 3a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3H6a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3V6a3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 3 3 0 0 0-3-3z"></path></svg><span>Search Patient Data</span></a>
+                <!-- <ul class="dropdown-menu">
+                  <li><a class="nav-link" href="chat.html">Chat</a></li>
+                  <li><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                  <li><a class="nav-link" href="blog.html">Blog</a></li>
+                  <li><a class="nav-link" href="calendar.html">Calendar</a></li>
+                </ul> -->
+              </li>
+               
+               
+            </ul>
+          </aside>
+        </div>
+        <!-- Main Content -->
+       
+        
+
+
+
+<div class="main-content" style="min-height: 627px;">
+    <section class="section">
+      <div class="section-body">
+        <div class="row mt-sm-4">
+          <div class="col-12 col-md-12 col-lg-4">
+            
+            <div class="card">
+              <div class="card-header">
+                <h4>Personal Details</h4>
+              </div>
+              <div class="card-body">
+                <div class="py-4">
+                  <p class="clearfix">
+                    <span class="float-left">
+                      Aadhaar Number
+                    </span>
+                    <span class="float-right text-muted">
+                    222222221112
+                    </span>
+                  </p>
+                  <p class="clearfix">
+                    <span class="float-left">
+                      Name
+                    </span>
+                    <span class="float-right text-muted">
+                    Jenish Patel
+                    </span>
+                  </p>
+                  <p class="clearfix">
+                    <span class="float-left">
+                      Phone Number
+                    </span>
+                    <span class="float-right text-muted">
+                    7573864415
+                    </span>
+                  </p>
+
+                  <p class="clearfix">
+                    <span class="float-left">
+                      Gender
+                    </span>
+                    <span class="float-right text-muted">
+                    Male
+                    </span>
+                  </p>
+                  <p class="clearfix">
+                    <span class="float-left">
+                      Category
+                    </span>
+                    <span class="float-right text-muted">
+                    General
+                    </span>
+                  </p>
+                  <p class="clearfix">
+                    <span class="float-left">
+                      DOB
+                    </span>
+                    <span class="float-right text-muted">
+                    Oct. 12, 2022
+                    </span>
+                  </p>
+
+                  <p class="clearfix">
+                    <span class="float-left">
+                        Family Doctor
+                    </span>
+                    <span class="float-right text-muted">
+                    Jayesh Patel
+                    </span>
+                  </p>
+                  <p class="clearfix">
+                    <span class="float-left">
+                      Doctor Number
+                    </span>
+                    <span class="float-right text-muted">
+                    Jayesh Patel
+                    </span>
+                  </p>
+                  
+                  <p class="clearfix">
+                    <span class="float-left">
+                      Address
+                    </span>
+                    <span class="float-right text-muted">
+                    Junagadh
+                    </span>
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+
+         
+           
+          </div>
+          <div class="col-12 col-md-12 col-lg-8">
+            <div class="card">
+              <div class="padding-20">
+                <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                  <!-- <li class="nav-item">
+                    <a class="nav-link active" id="home-tab2" data-toggle="tab" href="#about" role="tab"
+                      aria-selected="true">About</a>
+                  </li> -->
+                   
+                </ul>
+                <div class="tab-content tab-bordered" id="myTab3Content">
+                  <div class="tab-pane fade show active" id="about" role="tabpanel" aria-labelledby="home-tab2">
+                    <div class="row">
+                      <div class="col-md-3 col-6 b-r">
+                        <strong>Blood Group</strong>
+                        <br>
+                        <p class="text-muted"> B Positive</p>
+                      </div>
+                      <div class="col-md-3 col-6 b-r">
+                        <strong>Blood Pressure</strong>
+                        <br>
+                        <p class="text-muted"> 22</p>
+                      </div>
+                      <div class="col-md-3 col-6 b-r">
+                        <strong>Diabetes</strong>
+                        <br>
+                        <p class="text-muted"> 23</p>
+                      </div>
+                      <div class="col-md-3 col-6">
+                        <strong>Colestrol</strong>
+                        <br>
+                        <p class="text-muted"> 11</p>
+                      </div>
+                    </div>
+                    <div class="section-title">Allergies</div>
+                    <ul>
+                      <li>NA</li>
+                    
+                    </ul>
+                    <div class="section-title">Surgery History</div>
+                    <ul>
+                      <li>NA</li>
+                      
+                    </ul>
+                     
+                    
+                  </div>
+                         
+            
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="settingSidebar">
+      <a href="javascript:void(0)" class="settingPanelToggle"> <i class="fa fa-spin fa-cog"></i>
+      </a>
+      <div class="settingSidebar-body ps-container ps-theme-default" style="overflow: hidden; outline: none;" tabindex="2">
+        <div class=" fade show active">
+          <div class="setting-panel-header">Setting Panel
+          </div>
+          <div class="p-15 border-bottom">
+            <h6 class="font-medium m-b-10">Select Layout</h6>
+            <div class="selectgroup layout-color w-50">
+              <label class="selectgroup-item">
+                <input type="radio" name="value" value="1" class="selectgroup-input-radio select-layout" checked="">
+                <span class="selectgroup-button">Light</span>
+              </label>
+              <label class="selectgroup-item">
+                <input type="radio" name="value" value="2" class="selectgroup-input-radio select-layout">
+                <span class="selectgroup-button">Dark</span>
+              </label>
+            </div>
+          </div>
+          <div class="p-15 border-bottom">
+            <h6 class="font-medium m-b-10">Sidebar Color</h6>
+            <div class="selectgroup selectgroup-pills sidebar-color">
+              <label class="selectgroup-item">
+                <input type="radio" name="icon-input" value="1" class="selectgroup-input select-sidebar">
+                <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip" data-original-title="Light Sidebar"><i class="fas fa-sun"></i></span>
+              </label>
+              <label class="selectgroup-item">
+                <input type="radio" name="icon-input" value="2" class="selectgroup-input select-sidebar" checked="">
+                <span class="selectgroup-button selectgroup-button-icon" data-toggle="tooltip" data-original-title="Dark Sidebar"><i class="fas fa-moon"></i></span>
+              </label>
+            </div>
+          </div>
+          <div class="p-15 border-bottom">
+            <h6 class="font-medium m-b-10">Color Theme</h6>
+            <div class="theme-setting-options">
+              <ul class="choose-theme list-unstyled mb-0">
+                <li title="white" class="active">
+                  <div class="white"></div>
+                </li>
+                <li title="cyan">
+                  <div class="cyan"></div>
+                </li>
+                <li title="black">
+                  <div class="black"></div>
+                </li>
+                <li title="purple">
+                  <div class="purple"></div>
+                </li>
+                <li title="orange">
+                  <div class="orange"></div>
+                </li>
+                <li title="green">
+                  <div class="green"></div>
+                </li>
+                <li title="red">
+                  <div class="red"></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="p-15 border-bottom">
+            <div class="theme-setting-options">
+              <label class="m-b-0">
+                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" id="mini_sidebar_setting">
+                <span class="custom-switch-indicator"></span>
+                <span class="control-label p-l-10">Mini Sidebar</span>
+              </label>
+            </div>
+          </div>
+          <div class="p-15 border-bottom">
+            <div class="theme-setting-options">
+              <label class="m-b-0">
+                <input type="checkbox" name="custom-switch-checkbox" class="custom-switch-input" id="sticky_header_setting">
+                <span class="custom-switch-indicator"></span>
+                <span class="control-label p-l-10">Sticky Header</span>
+              </label>
+            </div>
+          </div>
+          <div class="mt-4 mb-4 p-3 align-center rt-sidebar-last-ele">
+            <a href="http://127.0.0.1:8000/personaldata/222222221112/#" class="btn btn-icon icon-left btn-primary btn-restore-theme">
+              <i class="fas fa-undo"></i> Restore Default
+            </a>
+          </div>
+        </div>
+      </div>
+    <div id="ascrail2001" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: 999; cursor: default; position: absolute; top: 0px; left: 272px; height: 721.6px; display: none;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2001-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: 999; top: 713.6px; left: 0px; position: absolute; cursor: default; display: none;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div></div>
+  </div>
+ 
+
+
+
+        <footer class="main-footer">
+          <div class="footer-left">
+            <a href="http://127.0.0.1:8000/personaldata/222222221112/templateshub.net">Templateshub</a>
+          </div>
+          <div class="footer-right">
+          </div>
+        </footer>
+      </div>
+    </div>
+ 
+
+  <!-- General JS Scripts -->
+  
+  <script src="./EasyMedi_files/app.min.js.download"></script>
+  <script src="./EasyMedi_files/apexcharts.min.js.download"></script>
+  <script src="./EasyMedi_files/index.js.download"></script>
+ 
+    <!-- JS Libraies -->
+    <script src="./EasyMedi_files/forms-advanced-forms.js.download"></script>   
+    <script src="./EasyMedi_files/cleave.min.js.download"></script>
+
+    <script src="./EasyMedi_files/cleave-phone.us.js.download"></script>
+    <script src="./EasyMedi_files/jquery.pwstrength.min.js.download"></script>
+    <script src="./EasyMedi_files/daterangepicker.js.download"></script>
+    <script src="./EasyMedi_files/bootstrap-colorpicker.min.js.download"></script>
+    <script src="./EasyMedi_files/bootstrap-timepicker.min.js.download"></script>
+    <script src="./EasyMedi_files/bootstrap-tagsinput.min.js.download"></script>
+    <script src="./EasyMedi_files/select2.full.min.js.download"></script>
+    <script src="./EasyMedi_files/jquery.selectric.min.js.download"></script>
+ 
+  
+
+  <script src="./EasyMedi_files/jquery.validate.min.js.download"></script>
+  <!-- JS Libraies -->
+  <script src="./EasyMedi_files/jquery.steps.min.js.download"></script>
+  <!-- Page Specific JS File -->
+  <script src="./EasyMedi_files/form-wizard.js.download"></script>
+
+  <script src="./EasyMedi_files/iziToast.min.js.download"></script>
+  <script src="./EasyMedi_files/toastr.js.download"></script>
+
+
+
+  
+
+   <!-- Tables -->
+   <script src="./EasyMedi_files/datatables.min.js.download"></script>
+   <script src="./EasyMedi_files/dataTables.bootstrap4.min.js.download"></script>
+   <script src="./EasyMedi_files/dataTables.buttons.min.js.download"></script>
+   <script src="./EasyMedi_files/buttons.flash.min.js.download"></script>
+   <script src="./EasyMedi_files/jszip.min.js.download"></script>
+   <script src="./EasyMedi_files/pdfmake.min.js.download"></script>
+   <script src="./EasyMedi_files/vfs_fonts.js.download"></script>
+   <script src="./EasyMedi_files/buttons.print.min.js.download"></script>
+   <script src="./EasyMedi_files/datatables.js.download"></script>
+
+
+   <script src="./EasyMedi_files/scripts.js.download"></script>
+  <!-- Custom JS File -->
+  <script src="./EasyMedi_files/custom.js.download"></script>
+
+
+
+
+<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg><div id="ascrail2000" class="nicescroll-rails nicescroll-rails-vr" style="width: 8px; z-index: 892; cursor: default; position: fixed; top: 0px; left: 242px; height: 721.6px; display: none; opacity: 0;"><div class="nicescroll-cursors" style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px;"></div></div><div id="ascrail2000-hr" class="nicescroll-rails nicescroll-rails-hr" style="height: 8px; z-index: 892; top: 713.6px; left: 0px; position: fixed; cursor: default; display: none; opacity: 0;"><div class="nicescroll-cursors" style="position: absolute; top: 0px; height: 6px; width: 0px; background-color: rgb(66, 66, 66); border: 1px solid rgb(255, 255, 255); background-clip: padding-box; border-radius: 5px; left: 0px;"></div></div><script>mendeleyWebImporter = {
+  downloadPdfs(e,t) { return this._call('downloadPdfs', [e,t]); },
+  open() { return this._call('open', []); },
+  setLoginToken(e) { return this._call('setLoginToken', [e]); },
+  _call(methodName, methodArgs) {
+    const id = Math.random();
+    window.postMessage({ id, token: '0.7407485215420433', methodName, methodArgs }, 'http://127.0.0.1:8000');
+    return new Promise(resolve => {
+      const listener = window.addEventListener('message', event => {
+        const data = event.data;
+        if (typeof data !== 'object' || !('result' in data) || data.id !== id) return;
+        window.removeEventListener('message', listener);
+        resolve(data.result);
+      });
+    });
+  }
+};</script></body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>
